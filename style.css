@@ -1,63 +1,131 @@
-body {
+/* ======= GLOBAL STYLES ======= */
+* {
   margin: 0;
-  padding: 20px;
-  font-family: "Montserrat", sans-serif;
-  background-color: #f7f7f7;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  overflow: hidden;
+}
+
+/* ======= BACKGROUND ANIMATION ======= */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(0,255,255,0.15), transparent 60%);
+  animation: floatBg 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatBg {
+  from { background-position: 20% 20%, 80% 80%; }
+  to { background-position: 30% 30%, 70% 70%; }
+}
+
+/* ======= GLASS CONTAINER ======= */
 .container {
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-top: 50px;
-}
-
-h1 {
-  font-size: 36px;
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 20px;
+  animation: fadeIn 1.2s ease;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= TITLE ======= */
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0,234,255,0.6);
+  margin-bottom: 25px;
+}
+
+/* ======= FORM ELEMENTS ======= */
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
 label {
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 400;
+  color: #e0e0e0;
+  font-size: 1rem;
 }
 
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  color: #333;
 }
 
 button {
-  background-color: #007bff;
-  color: white;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #00eaff, #0078ff);
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 10px;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,234,255,0.6);
 }
 
 button:hover {
-  background-color: #0062cc;
+  box-shadow: 0 0 25px rgba(0,234,255,0.9);
+  transform: scale(1.05);
 }
 
+/* ======= RESULT ======= */
 #result {
   margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  min-height: 28px;
+  text-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 500px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    padding: 10px 25px;
+  }
 }
