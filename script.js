@@ -5,10 +5,12 @@ const resultEl = document.getElementById("result");
 function calculateAge() {
   const birthdayValue = birthdayEl.value;
   if (birthdayValue === "") {
-    alert("Please enter your birthday");
+    resultEl.innerText = "⚠️ Please select your date of birth!";
+    resultEl.style.color = "#ffb3b3";
   } else {
     const age = getAge(birthdayValue);
-    resultEl.innerText = `Your age is ${age} ${age > 1 ? "years" : "year"} old`;
+    resultEl.style.color = "#00eaff";
+    resultEl.innerText = `🎉 You are ${age} ${age > 1 ? "years" : "year"} old!`;
   }
 }
 
